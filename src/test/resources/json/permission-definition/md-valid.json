@@ -1,0 +1,22 @@
+{
+  "id": "test-module-1.0.0",
+  "name": "test-module",
+  "provides": [
+    {
+      "id": "interface-one",
+      "version": "1.0",
+      "handlers": [
+        {
+          "methods": [ "GET" ],
+          "pathPattern": "/foo/{id}",
+          "permissionsRequired": [ "zoo.item.get" ]
+        }
+      ]
+    }
+  ],
+  "permissionSets": [
+    {
+      "permissionName": "zoo.item.get"
+    }
+  ]
+}

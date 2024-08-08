@@ -1,0 +1,33 @@
+{
+  "id": "test-module-1.0.0",
+  "name": "test-module",
+  "provides": [
+    {
+      "id": "interface-one",
+      "version": "1.0",
+      "handlers": [
+        {
+          "methods": [ "GET" ],
+          "pathPattern": "/foo/{id}",
+          "permissionsRequired": [ "zoo.item.get" ]
+        }
+      ]
+    },
+    {
+      "id": "interface-two",
+      "version": "1.0",
+      "handlers": [
+        {
+          "methods": [ "GET" ],
+          "pathPattern": "/bar/{id}",
+          "permissionsRequired": [ "zoo.item.get" ]
+        },
+        {
+          "methods": [ "POST" ],
+          "pathPattern": "/bar",
+          "permissionsRequired": [ "bar.item.post" ]
+        }
+      ]
+    }
+  ]
+}
