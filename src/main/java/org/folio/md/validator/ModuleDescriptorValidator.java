@@ -16,8 +16,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.folio.md.validator.model.ModuleDescriptor;
 import org.folio.md.validator.model.ValidationContext;
 
-@Mojo(name = "validate-module-descriptor", defaultPhase = COMPILE, requiresDependencyResolution = RUNTIME,
-  requiresProject = false)
+@Mojo(name = "validate", defaultPhase = COMPILE, requiresDependencyResolution = RUNTIME, requiresProject = false)
 public class ModuleDescriptorValidator extends AbstractMojo {
 
   private static final String DEFAULT_MODULE_DESCRIPTOR_FILE =
@@ -29,8 +28,8 @@ public class ModuleDescriptorValidator extends AbstractMojo {
   @Parameter(property = "moduleDescriptorFile", defaultValue = DEFAULT_MODULE_DESCRIPTOR_FILE)
   private File moduleDescriptroFile;
 
-  @Parameter(property = "failOnInvalidJson", defaultValue = "true")
-  private boolean failOnInvalidJson;
+  @Parameter(property = "failOnInvalidDescriptor", defaultValue = "true")
+  private boolean failOnInvalidDescriptor;
 
   @Override
   public void execute() throws MojoExecutionException, MojoFailureException {
@@ -64,7 +63,7 @@ public class ModuleDescriptorValidator extends AbstractMojo {
   }
 
   private void handleFailure(String message) throws MojoExecutionException {
-    if (failOnInvalidJson) {
+    if (failOnInvalidDescriptor) {
       throw new MojoExecutionException(message);
     } else {
       getLog().warn(message);
@@ -72,7 +71,7 @@ public class ModuleDescriptorValidator extends AbstractMojo {
   }
 
   private void handleFailure(String message, Throwable cause) throws MojoExecutionException {
-    if (failOnInvalidJson) {
+    if (failOnInvalidDescriptor) {
       throw new MojoExecutionException(message, cause);
     } else {
       getLog().warn(message, cause);
