@@ -20,7 +20,7 @@ class UniquePermissionForEndpointValidatorTest {
 
     validator.validate(ctx);
 
-    assertThat(ctx.getErrorParameters()).hasSize(0);
+    assertThat(ctx.getErrorParameters()).isEmpty();
   }
 
   @Test

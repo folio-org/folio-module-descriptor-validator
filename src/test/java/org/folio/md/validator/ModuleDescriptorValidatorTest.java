@@ -9,6 +9,8 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.folio.md.validator.support.UnitTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 @UnitTest
 class ModuleDescriptorValidatorTest {
@@ -20,48 +22,33 @@ class ModuleDescriptorValidatorTest {
     cleanProperties(mdValidator);
   }
 
+  @ParameterizedTest
+  @CsvSource({
+    "src/test/resources/json/wrong-file.json, true, Module descriptor file is not found",
+    "src/test/resources/json/wrong-file.json, false, null",
+    "src/test/resources/json/non-parsable-md-template.json, true, "
+      + "Failed to parse module descriptor file: src/test/resources/json/non-parsable-md-template.json",
+    "src/test/resources/json/non-parsable-md-template.json, false, null"
+  })
+  void execute(String filePath, boolean shouldThrow, String message) {
+    mdValidator.failOnInvalidDescriptor = shouldThrow;
+    mdValidator.moduleDescriptroFile = new File(filePath);
+
+    if (mdValidator.failOnInvalidDescriptor) {
+      assertThatThrownBy(mdValidator::execute)
+        .isInstanceOf(MojoExecutionException.class)
+        .hasMessage(message);
+    } else {
+      assertThatNoException().isThrownBy(mdValidator::execute);
+    }
+  }
+
   @Test
   void execute_positive() {
     mdValidator.failOnInvalidDescriptor = true;
     mdValidator.moduleDescriptroFile = new File("src/test/resources/json/valid-md-template.json");
 
     assertDoesNotThrow(mdValidator::execute);
-  }
-
-  @Test
-  void execute_negative_moduleDescriptorFileNotFound() {
-    mdValidator.failOnInvalidDescriptor = true;
-    mdValidator.moduleDescriptroFile = new File("wrong-file.json");
-
-    assertThatThrownBy(mdValidator::execute)
-      .isInstanceOf(MojoExecutionException.class)
-      .hasMessage("Module descriptor file is not found");
-  }
-
-  @Test
-  void execute_positive_moduleDescriptorFileNotFound() {
-    mdValidator.failOnInvalidDescriptor = false;
-    mdValidator.moduleDescriptroFile = new File("wrong-file.json");
-
-    assertThatNoException().isThrownBy(mdValidator::execute);
-  }
-
-  @Test
-  void execute_negative_nonParsableModuleDescriptor() {
-    mdValidator.failOnInvalidDescriptor = true;
-    mdValidator.moduleDescriptroFile = new File("src/test/resources/json/non-parsable-md-template.json");
-
-    assertThatThrownBy(mdValidator::execute)
-      .isInstanceOf(MojoExecutionException.class)
-      .hasMessage("Failed to parse module descriptor file: src/test/resources/json/non-parsable-md-template.json");
-  }
-
-  @Test
-  void execute_positive_nonParsableModuleDescriptor() {
-    mdValidator.failOnInvalidDescriptor = false;
-    mdValidator.moduleDescriptroFile = new File("src/test/resources/json/non-parsable-md-template.json");
-
-    assertThatNoException().isThrownBy(mdValidator::execute);
   }
 
   private static void cleanProperties(ModuleDescriptorValidator mdValidator) {
