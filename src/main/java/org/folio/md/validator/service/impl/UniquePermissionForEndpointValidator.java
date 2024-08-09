@@ -26,7 +26,7 @@ public class UniquePermissionForEndpointValidator implements Validator {
 
   private static void addErrorParameterIfPermNotUnique(ValidationContext ctx, String perm, Set<String> endpoints) {
     if (endpoints.size() > 1) {
-      ctx.addErrorParameter("Permission protects more then one endpoint", perm + " " + endpoints);
+      ctx.addErrorParameter("Permission protects more than one endpoint", perm + " " + endpoints);
     }
   }
 

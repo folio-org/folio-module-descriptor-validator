@@ -1,22 +1,21 @@
-package org.folio.md.validator;
+package org.folio.md.validator.service.impl;
 
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.folio.md.validator.support.TestUtils.readModuleDescriptor;
 
 import org.folio.md.validator.model.ValidationContext;
 import org.folio.md.validator.service.Validator;
-import org.folio.md.validator.service.impl.PermissionDefinitionValidator;
 import org.folio.md.validator.support.UnitTest;
 import org.junit.jupiter.api.Test;
 
 @UnitTest
-class PermissionDefinitionValidatorTest {
+class UniquePermissionForEndpointValidatorTest {
 
-  private final Validator validator = new PermissionDefinitionValidator();
+  private final Validator validator = new UniquePermissionForEndpointValidator();
 
   @Test
   void validate_positive() {
-    var moduleDescriptor = readModuleDescriptor("json/permission-definition/md-valid.json");
+    var moduleDescriptor = readModuleDescriptor("json/unique-permission/md-valid.json");
     var ctx = new ValidationContext(moduleDescriptor);
 
     validator.validate(ctx);
@@ -25,9 +24,8 @@ class PermissionDefinitionValidatorTest {
   }
 
   @Test
-  void validate_negative_missingPermissionDefinition() {
-    var moduleDescriptor =
-      readModuleDescriptor("json/permission-definition/md-non-valid-missing-permission-definition.json");
+  void validate_negative() {
+    var moduleDescriptor = readModuleDescriptor("json/unique-permission/md-non-valid.json");
     var ctx = new ValidationContext(moduleDescriptor);
 
     validator.validate(ctx);

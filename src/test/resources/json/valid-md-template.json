@@ -1,0 +1,57 @@
+{
+  "id": "@artifactId@-@version@",
+  "name": "test-mod",
+  "provides": [
+    {
+      "id": "test-interface-bar",
+      "version": "1.0",
+      "handlers": [
+        {
+          "methods": [ "POST" ],
+          "pathPattern": "/bar/item",
+          "permissionsRequired": [ "bar.item.post" ]
+        }
+      ]
+    }, {
+      "id": "test-interface-foo",
+      "version": "1.0",
+      "handlers": [
+        {
+          "methods": [ "GET" ],
+          "pathPattern": "/foo/item/{id}",
+          "permissionsRequired": [ "foo.item.get" ]
+        }
+      ]
+    },
+    {
+      "id": "_tenant",
+      "version": "2.0",
+      "interfaceType": "system",
+      "handlers": [
+        {
+          "methods": [ "POST" ],
+          "pathPattern": "/_/tenant"
+        },
+        {
+          "methods": [ "GET", "DELETE" ],
+          "pathPattern": "/_/tenant/{id}"
+        }
+      ]
+    }
+  ],
+  "permissionSets": [
+    {
+      "permissionName": "bar.item.post"
+    },
+    {
+      "permissionName": "foo.item.get"
+    },
+    {
+      "permissionName": "item.all",
+      "subPermissions":[
+        "bar.item.post",
+        "foo.item.get"
+      ]
+    }
+  ]
+}

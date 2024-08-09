@@ -68,7 +68,7 @@ mvn org.folio:folio-module-descriptor-validator:${folio-module-descriptor-valida
 The plugin checks the module descriptor for the following issues:
 - Permission name: Checks if the permission name is in the correct format. More details [here](https://folio-org.atlassian.net/wiki/spaces/FOLIJET/pages/156368925/Permissions+naming+convention).
 - Permission uniqueness: Check if the permission protects the only one endpoint.
-- Endpoint required permissions: `requiredPermissions` array should contain no more than one permission. Also `requiredPermissions` shouldn't contain permission set.
+- Endpoint required permissions: `permissionsRequired` array should contain no more than one permission. Also `permissionsRequired` shouldn't contain permission set.
 - Permission definition: Checks if the permission is defined in the `permissionSets` section.
 
 

@@ -1,11 +1,10 @@
-package org.folio.md.validator;
+package org.folio.md.validator.service.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.folio.md.validator.support.TestUtils.readModuleDescriptor;
 
 import org.folio.md.validator.model.ValidationContext;
 import org.folio.md.validator.service.Validator;
-import org.folio.md.validator.service.impl.EndpointRequiredPermissionsValidator;
 import org.folio.md.validator.support.UnitTest;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package org.folio.md.validator;
+package org.folio.md.validator.service.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,7 +7,6 @@ import java.util.stream.Stream;
 import org.folio.md.validator.model.ModuleDescriptor;
 import org.folio.md.validator.model.Permission;
 import org.folio.md.validator.model.ValidationContext;
-import org.folio.md.validator.service.impl.BackendPermissionNamesValidator;
 import org.folio.md.validator.support.UnitTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
