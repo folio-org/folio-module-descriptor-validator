@@ -17,8 +17,8 @@
     <jackson-databind.version>2.17.0</jackson-databind.version>
     <folio-permission-utils.version>1.5.5-SNAPSHOT</folio-permission-utils.version>
 
-    <junit-jupiter.version>5.10.2</junit-jupiter.version>
-    <assertj-core.version>3.25.3</assertj-core.version>
+    <junit-jupiter.version>5.10.3</junit-jupiter.version>
+    <assertj-core.version>3.26.3</assertj-core.version>
 
     <folio-java-checkstyle.version>1.0.1</folio-java-checkstyle.version>
     <maven-checkstyle.version>10.14.2</maven-checkstyle.version>
