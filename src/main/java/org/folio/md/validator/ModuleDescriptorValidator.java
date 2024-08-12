@@ -69,9 +69,8 @@ public class ModuleDescriptorValidator extends AbstractMojo {
   private void handleFailure(String message) throws MojoExecutionException {
     if (failOnInvalidDescriptor) {
       throw new MojoExecutionException(message);
-    } else {
-      getLog().warn(message);
     }
+    getLog().warn(message);
   }
 
   private void handleFailure(String message, Throwable cause) throws MojoExecutionException {
