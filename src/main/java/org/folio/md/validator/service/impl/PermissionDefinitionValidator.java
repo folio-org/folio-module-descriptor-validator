@@ -7,8 +7,7 @@ public class PermissionDefinitionValidator implements Validator {
 
   @Override
   public void validate(ValidationContext ctx) {
-    ctx.getModuleDescriptor().getProvides()
-      .stream()
+    ctx.getModuleDescriptor().getProvides().stream()
       .flatMap(interfaceDescriptor -> interfaceDescriptor.getHandlers().stream())
       .filter(endpoint -> endpoint.getPermissionsRequired() != null)
       .flatMap(endpoint -> endpoint.getPermissionsRequired().stream())

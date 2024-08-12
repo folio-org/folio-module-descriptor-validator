@@ -8,8 +8,7 @@ public class EndpointRequiredPermissionsValidator implements Validator {
 
   @Override
   public void validate(ValidationContext ctx) {
-    ctx.getModuleDescriptor().getProvides()
-      .stream()
+    ctx.getModuleDescriptor().getProvides().stream()
       .flatMap(interfaceDescriptor -> interfaceDescriptor.getHandlers().stream())
       .forEach(endpoint -> addErrorParameterIfNotValid(endpoint, ctx));
   }
