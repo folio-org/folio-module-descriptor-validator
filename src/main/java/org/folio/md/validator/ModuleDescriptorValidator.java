@@ -48,7 +48,7 @@ public class ModuleDescriptorValidator extends AbstractMojo {
 
     var validated = validator.validate(new ValidationContext(moduleDescriptor));
     if (validated.hasErrorParameters()) {
-      handleFailure(asJson(validated.getErrorParameters()));
+      handleFailure("Module descriptor not valid: " + asJson(validated.getErrorParameters()));
     }
   }
 
