@@ -11,7 +11,7 @@ It checks the module descriptor template placed in FOLIO modules for issues and 
 - [Usage](#usage)
   - [Non-project usage](#non-project-usage)
 - [Validation rules](#validation-rules)
--
+- [Helpful scripts](#helpful-scripts)
 
 ## Features
 - Validation: Automatically checks module descriptor for common issues and ensures it adheres to FOLIO standards.
