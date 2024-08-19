@@ -11,6 +11,7 @@ It checks the module descriptor template placed in FOLIO modules for issues and 
 - [Usage](#usage)
   - [Non-project usage](#non-project-usage)
 - [Validation rules](#validation-rules)
+-
 
 ## Features
 - Validation: Automatically checks module descriptor for common issues and ensures it adheres to FOLIO standards.
@@ -53,7 +54,7 @@ To disable the fail-fast mode or add custom path to module descriptor file, add 
     </execution>
   </executions>
   <configuration>
-    <failOnInvalidJson>false</failOnInvalidJson>
+    <failOnInvalidDescriptor>false</failOnInvalidDescriptor>
     <moduleDescriptorFile>${project.basedir}/path/to/module-descriptor.json</moduleDescriptorFile>
   </configuration>
 </plugin>
@@ -71,4 +72,5 @@ The plugin checks the module descriptor for the following issues:
 - Endpoint required permissions: `permissionsRequired` array should contain no more than one permission. Also `permissionsRequired` shouldn't contain permission set.
 - Permission definition: Checks if the permission is defined in the `permissionSets` section.
 
-
+## Helpful scripts
+- [module descriptor batch validator](scripts/module-descriptor-batch-validator/README.md)
