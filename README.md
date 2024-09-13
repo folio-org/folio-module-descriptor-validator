@@ -74,3 +74,8 @@ The plugin checks the module descriptor for the following issues:
 
 ## Helpful scripts
 - [module descriptor batch validator](scripts/module-descriptor-batch-validator/README.md)
+
+## Issue tracker
+
+See project [MVNMDVAL](https://folio-org.atlassian.net/browse/MVNMDVAL)
+at the [FOLIO issue tracker](https://dev.folio.org/guidelines/issue-tracker/).
