@@ -20,6 +20,18 @@ It checks the module descriptor template placed in FOLIO modules for issues and 
 - Non-project usage: Can be used as a standalone tool to validate module descriptors.
 
 ## Usage
+Add the FOLIO plugin repository to your project's `pom.xml` file:
+
+```xml
+  <pluginRepositories>
+    <pluginRepository>
+      <id>folio-nexus</id>
+      <name>FOLIO Maven repository</name>
+      <url>https://repository.folio.org/repository/maven-folio</url>
+    </pluginRepository>
+  </pluginRepositories>
+```
+
 Add the following plugin configuration to your project's `pom.xml` file (inside `<build><plugins>` section) to enable validation of the module descriptor during the build process:
 
 ```xml
@@ -60,7 +72,7 @@ To disable the fail-fast mode or add custom path to module descriptor file, add 
 </plugin>
 ```
 ### Non-project usage
-To validate module descriptor without integrating it into the project, you can use the following command:
+If the project has the `<pluginRepository>` dependency shown above, you can use the following command to validate without adding the `<plugin>` entry to `pom.xml`:
 
 ```shell
 mvn org.folio:folio-module-descriptor-validator:${folio-module-descriptor-validator.version}:validate -DmoduleDescriptorFile=/path/to/module-descriptor.json
