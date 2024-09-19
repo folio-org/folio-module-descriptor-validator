@@ -1,15 +1,16 @@
 package org.folio.md.validator.model;
 
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import lombok.Data;
 
 @Data
 public class ValidationContext {
 
   private ModuleDescriptor moduleDescriptor;
-  private List<ErrorParameter> errorParameters;
+  private Set<ErrorParameter> errorParameters;
 
   private List<String> permissionWithSubPermissions;
   private List<String> definedPermissions;
@@ -18,9 +19,9 @@ public class ValidationContext {
     this.moduleDescriptor = moduleDescriptor;
   }
 
-  public List<ErrorParameter> getErrorParameters() {
+  public Set<ErrorParameter> getErrorParameters() {
     if (errorParameters == null) {
-      errorParameters = new ArrayList<>();
+      errorParameters = new LinkedHashSet<>();
     }
     return errorParameters;
   }
