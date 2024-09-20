@@ -71,12 +71,62 @@ To disable the fail-fast mode or add custom path to module descriptor file, add 
         </configuration>
       </plugin>
 ```
+
+Example 'pom.xml' file:
+```xml
+<project>
+  ...
+  <properties>
+    ...
+    <folio-module-descriptor-validator.version>1.0.0</folio-module-descriptor-validator.version>
+    ...
+  </properties>
+  ...
+  <build>
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.folio</groupId>
+        <artifactId>folio-module-descriptor-validator</artifactId>
+        <version>${folio-module-descriptor-validator.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>validate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      ...
+    </plugins>
+  </build>
+  ...
+  <pluginRepositories>
+    <pluginRepository>
+      <id>folio-nexus</id>
+      <name>FOLIO Maven repository</name>
+      <url>https://repository.folio.org/repository/maven-folio</url>
+    </pluginRepository>
+  </pluginRepositories>
+  ...
+</project>
+```
+
 ### Non-project usage
 If the project has the `<pluginRepository>` dependency shown above, you can use the following command to validate without adding the `<plugin>` entry to `pom.xml`:
 
 ```shell
 mvn org.folio:folio-module-descriptor-validator:${folio-module-descriptor-validator.version}:validate -DmoduleDescriptorFile=/path/to/module-descriptor.json
 ```
+Please replace `${folio-module-descriptor-validator.version}` with the latest version of the plugin, and `/path/to/module-descriptor.json` with the path to the module descriptor file if needed. By default, the plugin will look for the module descriptor in `${project.basedir}/descriptors/ModuleDescriptor-template.json`.
+
+Example:
+```shell
+mvn org.folio:folio-module-descriptor-validator:1.0.0:validate
+```
+
+NOTE: Non-project use is needed for local tests, using scripts, or creating reports. It is also suitable for validating UI module descriptors. For everyday work with modules that contain module descriptor, it is recommended to add a plugin to the `pom.xml` to track and prevent issues with MD.
+
 ## Validation rules
 The plugin checks the module descriptor for the following issues:
 - Permission name: Checks if the permission name is in the correct format. More details [here](https://folio-org.atlassian.net/wiki/spaces/FOLIJET/pages/156368925/Permissions+naming+convention).
