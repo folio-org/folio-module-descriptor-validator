@@ -7,4 +7,6 @@ fi
 
 JSON_INPUT="$1"
 
-./mvnw org.folio:folio-module-descriptor-validator:1.0.0:validate -DmoduleDescriptorFile="$JSON_INPUT"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+"$SCRIPT_DIR/mvnw" org.folio:folio-module-descriptor-validator:1.0.0:validate -DmoduleDescriptorFile="$JSON_INPUT"
