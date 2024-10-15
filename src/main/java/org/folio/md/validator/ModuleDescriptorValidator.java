@@ -27,7 +27,7 @@ public class ModuleDescriptorValidator extends AbstractMojo {
     "${project.basedir}/descriptors/ModuleDescriptor-template.json";
 
   @Parameter(property = "moduleDescriptorFile", defaultValue = DEFAULT_MODULE_DESCRIPTOR_FILE)
-  File moduleDescriptroFile;
+  File moduleDescriptorFile;
 
   @Parameter(property = "failOnInvalidDescriptor", defaultValue = "true")
   boolean failOnInvalidDescriptor;
@@ -37,11 +37,11 @@ public class ModuleDescriptorValidator extends AbstractMojo {
 
   @Override
   public void execute() throws MojoExecutionException {
-    if (moduleDescriptroFile == null || !moduleDescriptroFile.exists()) {
+    if (moduleDescriptorFile == null || !moduleDescriptorFile.exists()) {
       handleFailure("Module descriptor file is not found");
     }
 
-    var moduleDescriptor = parseModuleDescriptorFile(moduleDescriptroFile);
+    var moduleDescriptor = parseModuleDescriptorFile(moduleDescriptorFile);
     if (moduleDescriptor == null) {
       return;
     }

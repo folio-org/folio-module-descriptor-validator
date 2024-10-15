@@ -32,7 +32,7 @@ class ModuleDescriptorValidatorTest {
   })
   void execute(String filePath, boolean shouldThrow, String message) {
     mdValidator.failOnInvalidDescriptor = shouldThrow;
-    mdValidator.moduleDescriptroFile = new File(filePath);
+    mdValidator.moduleDescriptorFile = new File(filePath);
 
     if (mdValidator.failOnInvalidDescriptor) {
       assertThatThrownBy(mdValidator::execute)
@@ -46,13 +46,13 @@ class ModuleDescriptorValidatorTest {
   @Test
   void execute_positive() {
     mdValidator.failOnInvalidDescriptor = true;
-    mdValidator.moduleDescriptroFile = new File("src/test/resources/json/valid-md-template.json");
+    mdValidator.moduleDescriptorFile = new File("src/test/resources/json/valid-md-template.json");
 
     assertDoesNotThrow(mdValidator::execute);
   }
 
   private static void cleanProperties(ModuleDescriptorValidator mdValidator) {
-    mdValidator.moduleDescriptroFile = null;
+    mdValidator.moduleDescriptorFile = null;
     mdValidator.failOnInvalidDescriptor = false;
   }
 }
