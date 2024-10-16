@@ -125,6 +125,49 @@ Example:
 mvn org.folio:folio-module-descriptor-validator:1.0.0:validate
 ```
 
+Modules that don't use maven may use this minimal pom.xml:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!--
+  Put this minimal pom.xml file into the directory of the ModuleDescriptor-template.json file.
+  Run "mvn compile" to run the validator.
+  This is intended for non-maven projects.
+  When running from GitHub Actions use "runs-on: ubuntu-24.04" (or later) for a compatible mvn version.
+  -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dummy</groupId>
+  <artifactId>dummy</artifactId>
+  <version>0.0.0</version>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>folio-nexus</id>
+      <name>FOLIO Maven repository</name>
+      <url>https://repository.folio.org/repository/maven-folio</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <properties>
+    <moduleDescriptorFile>ModuleDescriptor-template.json</moduleDescriptorFile>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.folio</groupId>
+        <artifactId>folio-module-descriptor-validator</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>validate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+
 NOTE: Non-project use is needed for local tests, using scripts, or creating reports. It is also suitable for validating UI module descriptors. For everyday work with modules that contain module descriptor, it is recommended to add a plugin to the `pom.xml` to track and prevent issues with MD.
 
 ## Validation rules
