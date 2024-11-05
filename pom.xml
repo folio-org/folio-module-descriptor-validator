@@ -3,7 +3,7 @@
   <groupId>org.folio</groupId>
   <artifactId>folio-module-descriptor-validator</artifactId>
   <packaging>maven-plugin</packaging>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <name>folio-module-descriptor-validator</name>
 
   <properties>
@@ -210,7 +210,7 @@
     <url>https://https://github.com/folio-org/folio-module-descriptor-validator</url>
     <connection>scm:git:git://github.com:folio-org/folio-module-descriptor-validator.git</connection>
     <developerConnection>scm:git:git@github.com:folio-org/folio-module-descriptor-validator.git</developerConnection>
-    <tag>v1.0.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
 </project>
