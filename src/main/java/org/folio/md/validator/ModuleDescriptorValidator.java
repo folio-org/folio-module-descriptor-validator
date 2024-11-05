@@ -38,7 +38,7 @@ public class ModuleDescriptorValidator extends AbstractMojo {
   @Override
   public void execute() throws MojoExecutionException {
     if (moduleDescriptorFile == null || !moduleDescriptorFile.exists()) {
-      handleFailure("Module descriptor file is not found");
+      handleFailure("Module descriptor file is not found: " + moduleDescriptorFile);
     }
 
     var moduleDescriptor = parseModuleDescriptorFile(moduleDescriptorFile);
