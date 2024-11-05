@@ -1,3 +1,14 @@
+## Version `v1.0.1` (05.11.2024)
+* Doc: `<plugin>` snippets for pom.xml have wrong indentation (MVNMDVAL-3)[https://folio-org.atlassian.net/browse/MVNMDVAL-3]
+* Doc: Explain `<pluginRepository>` to fix "Failure to find folio-module-descriptor-validator" (MVNMDVAL-5)[https://folio-org.atlassian.net/browse/MVNMDVAL-5]
+* Doc: Add issue tracker link to README (MVNMDVAL-4)[https://folio-org.atlassian.net/browse/MVNMDVAL-4]
+* Remove duplicate errors. Pretty-print md-validator.sh output. (#16)[https://github.com/folio-org/folio-module-descriptor-validator/pull/16]
+* Doc: Example pom.xml. Example shell usage. (#17)[https://github.com/folio-org/folio-module-descriptor-validator/pull/17]
+* Fix broken moduleDescriptorFile parameter (MVNMDVAL-6)[https://folio-org.atlassian.net/browse/MVNMDVAL-6]
+* Doc: Provide complete minimal pom.xml for non-maven modules (#22)[https://github.com/folio-org/folio-module-descriptor-validator/pull/22]
+* Show path in error msg when descriptor file is not found (MVNMDVAL-7)[https://folio-org.atlassian.net/browse/MVNMDVAL-7]
+* Add success report when no issue was found (MVNMDVAL-2)[https://folio-org.atlassian.net/browse/MVNMDVAL-2]
+* Allow two foreign module permissions for mod-pubsub circular dependency (MVNMDVAL-8)[https://folio-org.atlassian.net/browse/MVNMDVAL-8]
 
 ## Version `v1.0.0` (05.09.2024)
 * Initial release for module descriptor validator (EUREKA-240)
