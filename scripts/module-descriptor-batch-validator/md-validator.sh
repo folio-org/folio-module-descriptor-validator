@@ -4,7 +4,7 @@ JSON_FILE="install.json"
 BASE_URL="https://folio-registry.dev.folio.org/_/proxy/modules"
 PLUGIN_GROUP_ID="org.folio"
 PLUGIN_ARTIFACT_ID="folio-module-descriptor-validator"
-PLUGIN_VERSION="1.0.1-SNAPSHOT"
+PLUGIN_VERSION="1.0.1"
 PLUGIN_GOAL="validate"
 
 REPORT_FILE="validation_report.txt"
