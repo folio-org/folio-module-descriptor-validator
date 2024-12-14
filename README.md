@@ -133,7 +133,7 @@ Modules that don't use maven may use this minimal pom.xml:
   Put this minimal pom.xml file into the directory of the ModuleDescriptor-template.json file.
   Run "mvn compile" to run the validator.
   This is intended for non-maven projects.
-  When running from GitHub Actions use "runs-on: ubuntu-24.04" (or later) for a compatible mvn version.
+  For GitHub Actions use "runs-on: ubuntu-latest" that comes with a compatible mvn version.
   -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>dummy</groupId>
