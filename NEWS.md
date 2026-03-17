@@ -1,3 +1,6 @@
+## Version `v1.0.2` (in progress)
+* Migrate CI from Jenkins to GitHub Actions central Maven workflow (MVNMDVAL-10)
+
 ## Version `v1.0.1` (05.11.2024)
 * Doc: `<plugin>` snippets for pom.xml have wrong indentation ([MVNMDVAL-3](https://folio-org.atlassian.net/browse/MVNMDVAL-3))
 * Doc: Explain `<pluginRepository>` to fix "Failure to find folio-module-descriptor-validator" ([MVNMDVAL-5](https://folio-org.atlassian.net/browse/MVNMDVAL-5))

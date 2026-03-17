@@ -7,8 +7,8 @@
   <name>folio-module-descriptor-validator</name>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
 
     <lombok.version>1.18.30</lombok.version>
     <maven-plugin-api.version>3.9.6</maven-plugin-api.version>
