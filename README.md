@@ -1,6 +1,6 @@
 # folio-module-descriptor-validator
 
-Copyright (C) 2023-2024 The Open Library Foundation
+Copyright (C) 2023-2026 The Open Library Foundation
 
 ## Description
 Maven plugin for validating FOLIO module descriptors. We made it as simple as possible, so it can be easily integrated into any FOLIO module project.
@@ -78,7 +78,7 @@ Example 'pom.xml' file:
   ...
   <properties>
     ...
-    <folio-module-descriptor-validator.version>1.0.0</folio-module-descriptor-validator.version>
+    <folio-module-descriptor-validator.version>1.0.1</folio-module-descriptor-validator.version>
     ...
   </properties>
   ...
@@ -122,7 +122,7 @@ Please replace `${folio-module-descriptor-validator.version}` with the latest ve
 
 Example:
 ```shell
-mvn org.folio:folio-module-descriptor-validator:1.0.0:validate
+mvn org.folio:folio-module-descriptor-validator:1.0.1:validate
 ```
 
 Modules that don't use maven may use this minimal pom.xml:
@@ -154,7 +154,7 @@ Modules that don't use maven may use this minimal pom.xml:
       <plugin>
         <groupId>org.folio</groupId>
         <artifactId>folio-module-descriptor-validator</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <executions>
           <execution>
             <goals>
