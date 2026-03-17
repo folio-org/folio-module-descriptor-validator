@@ -24,7 +24,9 @@ class ModuleDescriptorValidatorTest {
 
   @ParameterizedTest
   @CsvSource({
-    "src/test/resources/json/wrong-file.json, true, Module descriptor file is not found",
+    ", true, Module descriptor file is not found: null",
+    "src/test/resources/json/wrong-file.json, true, Module descriptor file is not found: "
+      + "src/test/resources/json/wrong-file.json",
     "src/test/resources/json/wrong-file.json, false, null",
     "src/test/resources/json/non-parsable-md-template.json, true, "
       + "Failed to parse module descriptor file: src/test/resources/json/non-parsable-md-template.json",
@@ -32,7 +34,7 @@ class ModuleDescriptorValidatorTest {
   })
   void execute(String filePath, boolean shouldThrow, String message) {
     mdValidator.failOnInvalidDescriptor = shouldThrow;
-    mdValidator.moduleDescriptorFile = new File(filePath);
+    mdValidator.moduleDescriptorFile = filePath == null ? null : new File(filePath);
 
     if (mdValidator.failOnInvalidDescriptor) {
       assertThatThrownBy(mdValidator::execute)

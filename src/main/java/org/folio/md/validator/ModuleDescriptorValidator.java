@@ -38,7 +38,7 @@ public class ModuleDescriptorValidator extends AbstractMojo {
   @Override
   public void execute() throws MojoExecutionException {
     if (moduleDescriptorFile == null || !moduleDescriptorFile.exists()) {
-      handleFailure("Module descriptor file is not found");
+      handleFailure("Module descriptor file is not found: " + moduleDescriptorFile);
     }
 
     var moduleDescriptor = parseModuleDescriptorFile(moduleDescriptorFile);
@@ -49,6 +49,8 @@ public class ModuleDescriptorValidator extends AbstractMojo {
     var validated = validator.validate(new ValidationContext(moduleDescriptor));
     if (validated.hasErrorParameters()) {
       handleFailure("Module descriptor not valid: " + asJson(validated.getErrorParameters()));
+    } else {
+      getLog().info("Validated successfully.");
     }
   }
 

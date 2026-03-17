@@ -1,0 +1,33 @@
+{
+  "id": "test-module-1.0.0",
+  "name": "test-module",
+  "provides": [
+    {
+      "id": "foo",
+      "version": "1.0",
+      "handlers": [
+        {
+          "methods": [ "GET" ],
+          "pathPattern": "/foo",
+          "permissionsRequired": [ "remote-storage.pub-sub-handlers.log-record-event.post" ]
+        }
+      ]
+    },
+    {
+      "id": "bar",
+      "version": "1.0",
+      "handlers": [
+        {
+          "methods": [ "GET" ],
+          "pathPattern": "/bar",
+          "permissionsRequired": [ "audit.pub-sub-handlers.log-record-event.post" ]
+        }
+      ]
+    }
+  ],
+  "permissionSets": [
+    {
+      "permissionName": "zoo.item.get"
+    }
+  ]
+}
