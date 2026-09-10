@@ -19,6 +19,9 @@ public class PermissionDefinitionValidator implements Validator {
       return;
     }
     switch (permission) {
+      case "*":
+        // Wildcard means "any authenticated caller accepted"; not a real permission name.
+        return;
       case "remote-storage.pub-sub-handlers.log-record-event.post":
       case "audit.pub-sub-handlers.log-record-event.post":
         // Allow mod-pubsub to define the mod-audit and mod-remote-storage
