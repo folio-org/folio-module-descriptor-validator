@@ -16,6 +16,9 @@ class PermissionDefinitionValidatorTest {
       md-valid.json, 0
       md-mod-pubsub-names.json, 0
       md-non-valid-missing-permission-definition.json, 1
+      md-wildcard-permission.json, 0
+      md-wildcard-with-valid-permission.json, 0
+      md-wildcard-with-invalid-permission.json, 1
       """)
   void validate(String file, int expectedErrorCount) {
     var ctx = new ValidationContext(readModuleDescriptor("json/permission-definition/" + file));
