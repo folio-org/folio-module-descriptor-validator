@@ -9,7 +9,7 @@
         {
           "methods": ["GET"],
           "pathPattern": "/foo/{id}",
-          "permissionsRequired": ["*", "zoo.item.get"]
+          "permissionsRequired": ["*", "foo.item.get"]
         }
       ]
     }

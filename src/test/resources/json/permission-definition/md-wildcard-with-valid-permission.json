@@ -9,12 +9,12 @@
         {
           "methods": ["GET"],
           "pathPattern": "/foo/{id}",
-          "permissionsRequired": ["*", "zoo.item.get"]
+          "permissionsRequired": ["*", "foo.item.get"]
         }
       ]
     }
   ],
   "permissionSets": [
-    { "permissionName": "zoo.item.get" }
+    { "permissionName": "foo.item.get" }
   ]
 }
