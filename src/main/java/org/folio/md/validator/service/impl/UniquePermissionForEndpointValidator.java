@@ -1,5 +1,6 @@
 package org.folio.md.validator.service.impl;
 
+import static java.util.function.Predicate.not;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toSet;
@@ -13,6 +14,8 @@ import org.folio.md.validator.model.ValidationContext;
 import org.folio.md.validator.service.Validator;
 
 public class UniquePermissionForEndpointValidator implements Validator {
+
+  private static final String WILDCARD_PERMISSION = "*";
 
   @Override
   public void validate(ValidationContext ctx) {
@@ -32,6 +35,7 @@ public class UniquePermissionForEndpointValidator implements Validator {
 
   private static Stream<SimpleEntry<String, String>> groupByPermission(RoutingEntry handler) {
     return handler.getPermissionsRequired().stream()
+      .filter(not(WILDCARD_PERMISSION::equals))
       .map(permission -> new SimpleEntry<>(permission, extractPathAndMethods(handler)));
   }
 
