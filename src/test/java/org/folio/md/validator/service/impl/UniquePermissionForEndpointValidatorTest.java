@@ -32,4 +32,25 @@ class UniquePermissionForEndpointValidatorTest {
 
     assertThat(ctx.getErrorParameters()).hasSize(1);
   }
+
+  @Test
+  void validate_positive_wildcardPermissionOnMultipleHandlers() {
+    var moduleDescriptor = readModuleDescriptor("json/unique-permission/md-wildcard-multiple-handlers.json");
+    var ctx = new ValidationContext(moduleDescriptor);
+
+    validator.validate(ctx);
+
+    assertThat(ctx.getErrorParameters()).isEmpty();
+  }
+
+  @Test
+  void validate_negative_wildcardWithDuplicateNamedPermission() {
+    var moduleDescriptor = readModuleDescriptor(
+      "json/unique-permission/md-wildcard-with-duplicate-named-permission.json");
+    var ctx = new ValidationContext(moduleDescriptor);
+
+    validator.validate(ctx);
+
+    assertThat(ctx.getErrorParameters()).hasSize(1);
+  }
 }

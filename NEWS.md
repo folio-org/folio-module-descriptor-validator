@@ -1,5 +1,7 @@
 ## Version `v1.0.2` (in progress)
 * Migrate CI from Jenkins to GitHub Actions central Maven workflow (MVNMDVAL-10)
+* Fix `folio-module-descriptor-validator` to accept `"*"` as a valid value in `permissionsRequired` (MVNMDVAL-13)
+* Wildcard * can be used for several endpoints in scope of one module descriptor (MVNMDVAL-15)
 
 ## Version `v1.0.1` (05.11.2024)
 * Doc: `<plugin>` snippets for pom.xml have wrong indentation ([MVNMDVAL-3](https://folio-org.atlassian.net/browse/MVNMDVAL-3))
