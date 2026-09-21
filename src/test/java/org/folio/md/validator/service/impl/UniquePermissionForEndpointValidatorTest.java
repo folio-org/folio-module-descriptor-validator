@@ -34,7 +34,7 @@ class UniquePermissionForEndpointValidatorTest {
   }
 
   @Test
-  void validate_wildcardPermissionOnMultipleHandlers() {
+  void validate_positive_wildcardPermissionOnMultipleHandlers() {
     var moduleDescriptor = readModuleDescriptor("json/unique-permission/md-wildcard-multiple-handlers.json");
     var ctx = new ValidationContext(moduleDescriptor);
 
